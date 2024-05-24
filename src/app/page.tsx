@@ -26,7 +26,7 @@ export default function Home() {
             <div className="text-white flex flex-col gap-2 px-3">
               <div className="mt-3">
                 <Label>Email</Label>
-                <Input autoFocus className="bg-zinc-700/20 h-12" placeholder="Informe o seu email..." />
+                <Input autoFocus className="bg-zinc-700/20 h-12" placeholder="Informe o seu email..." type="email"/>
               </div>
               <div>
                 <Label>Senha</Label>
@@ -36,7 +36,7 @@ export default function Home() {
               <div className="mt-1 text-center">
                 <Link href={"/"} className="text-zinc-200 hover:text-zinc-400 transition duration-200">Esqueceu sua senha?</Link>
                 <p className="mt-3">
-                Não possui conta? <Link href={"/"} className="text-purple-500 hover:text-purple-700 transition duration-300">Cadastre-se</Link>
+                Não possui conta? <Link href={"/register"} className="text-purple-500 hover:text-purple-700 transition duration-300">Cadastre-se</Link>
                 </p>
               </div>
             </div>

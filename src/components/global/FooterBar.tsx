@@ -11,7 +11,7 @@ const FooterBar = () => {
         <div className="w-full py-4 text-white mt-0 md:mt-11 flex flex-col">
           <div className="grid grid-cols-2 md:flex gap-4 justify-between">
             <div className="flex flex-col gap-2">
-                <p className="mb-2">Alguma dúvida? ligue 0800 999</p>
+                <p className="mb-2">Alguma dúvida? <span className="text-zinc-300">Ligue 0100 999</span></p>
               <Link
                 className="text-zinc-300 hover:text-zinc-500 transition duration-100 hover:underline underline-offset-4"
                 href={"#"}
