@@ -3,6 +3,7 @@
 import { z } from "zod"
 import { prisma } from './prisma';
 import { redirect } from "next/navigation"
+import bcrypt from "bcrypt"
 
 const UserSchema = z.object({
     name: z.string().min(3, {message: "Nome invalido"}),
@@ -22,7 +23,7 @@ export const register = async (prevSate: any, formData: FormData) => {
         }
     }
 
-    const { email } = validateFields.data
+    const { email, password } = validateFields.data
 
     const existingUser = await prisma.registerUser.findUnique({
         where: { email },
@@ -36,12 +37,14 @@ export const register = async (prevSate: any, formData: FormData) => {
         }
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10)
+
     try {
         await prisma.registerUser.create({
             data: {
                 name: validateFields.data.name,
                 email: validateFields.data.email,
-                password: validateFields.data.password
+                password: hashedPassword
             },
         })
     }catch(error) {
