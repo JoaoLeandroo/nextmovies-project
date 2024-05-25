@@ -52,7 +52,27 @@ export const register = async (prevSate: any, formData: FormData) => {
             message: "Failed to create new User."
         }
     }
-
-
     redirect("/")
+}
+
+
+export const loginUser = async (email: string, password: string) => {
+
+    const user = await prisma.registerUser.findUnique({
+        where: {
+            email,
+        }
+    })
+
+    if(!user) {
+        return null
+    }
+
+    const isValidPassword = await bcrypt.compare(password, user.password);
+
+    if (!isValidPassword) {
+        return null; 
+      }
+    
+    redirect("/dashboard") 
 }
