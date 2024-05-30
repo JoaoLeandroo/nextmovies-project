@@ -1,10 +1,10 @@
+import Container from "@/components/global/Container";
 
-const Dashboard = () => {
-    return ( 
-        <div>
-            <span className="text-7xl text-white">SUCESSO</span>
-        </div>
-     );
+export default function Dashboard() {
+
+  return (
+    <Container>
+      <div className="text-7xl text-white font-semibold">SUCESSO</div>
+    </Container>
+  );
 }
- 
-export default Dashboard;

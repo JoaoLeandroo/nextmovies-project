@@ -1,9 +1,9 @@
 "use server"
-
 import { z } from "zod"
 import { prisma } from './prisma';
 import { redirect } from "next/navigation"
 import bcrypt from "bcrypt"
+import { cookies } from 'next/headers'
 
 const UserSchema = z.object({
     name: z.string().min(3, {message: "Nome invalido"}),
@@ -72,7 +72,8 @@ export const loginUser = async (email: string, password: string) => {
 
     if (!isValidPassword) {
         return null; 
-      }
-    
-    redirect("/dashboard") 
+    }
+
+    cookies().set('movie_token', 'lkasjd2193j1o23uu372nsdh3')
+    redirect("/dashboard")
 }

@@ -17,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+      <link rel="icon" href="/icon-movie.png" sizes="any" />
+      </head>
       <body className={`${font.className} bg-black`}>
         <div className="flex min-h-screen flex-col">
           <main className="flex-grow">

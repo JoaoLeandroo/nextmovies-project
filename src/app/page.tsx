@@ -19,15 +19,16 @@ export default function Home() {
 
   const [password, setPassword] = useState("");
 
-  const login:any = loginUser(email, password)
+  const login: any = loginUser(email, password)
 
   const handleClick = (e: FormEvent) => {
-
+    
     const email_ref = emailRef.current?.value
     const password_ref = passwordRef.current?.value
     e.preventDefault();
     setEmail(email_ref as string)
     setPassword(password_ref as string)
+    
     return
   }
 
