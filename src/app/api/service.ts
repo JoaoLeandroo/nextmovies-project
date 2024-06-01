@@ -1,17 +1,7 @@
-const API_BASE = "https://api.themoviedb.org/3/"
 
-const loadTheMovieDbAPI = async () => {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.KEY_THEMOVIEDB}&query=harry%potter&language=pt-BR&page=1`)
-    if (!response.ok) {
-        
-      return {message: "Error ao buscar os dados."}
-      }
-  
-      return response.json()
-}
-
+// Search Movies categories
 const loadApiGenrs = async (gen: string) => {
-    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=da359e5e2f2da6874a02ea83beb3b3cf&with_genres=${gen}&language=pt-BR&page=1`)
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.KEY_THEMOVIEDB}&with_genres=${gen}&language=pt-BR&page=1`)
     if(!response.ok) {
       return {message: "Error ao buscar os dados"}
     }
@@ -19,4 +9,26 @@ const loadApiGenrs = async (gen: string) => {
     return response.json()
 }
 
-export { loadTheMovieDbAPI, loadApiGenrs }
+
+// Search Series categories
+const loadApiSeries = async(gen:string) => {
+  const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${process.env.KEY_THEMOVIEDB}&with_genres=${gen}&language=pt-BR&page=1`)
+  if(!response.ok) {
+    return {message: "Error ao buscar os dados"}
+  }
+
+  return response.json()
+}
+
+// Details series
+const loadDetails = async (detail: any) => {
+  const response = await fetch(`https://api.themoviedb.org/3/tv/${detail}?api_key=${process.env.KEY_THEMOVIEDB}&language=pt-BR`)
+  if(!response.ok) {
+    return {message: "Error ao buscar os dados"}
+  }
+
+  return response.json()
+}
+
+
+export { loadApiGenrs, loadApiSeries, loadDetails }
