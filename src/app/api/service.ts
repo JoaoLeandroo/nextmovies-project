@@ -21,7 +21,7 @@ const loadApiSeries = async(gen:string) => {
 }
 
 // Details series
-const loadDetails = async (detail: any) => {
+const loadDetailsSeries = async (detail: any) => {
   const response = await fetch(`https://api.themoviedb.org/3/tv/${detail}?api_key=${process.env.KEY_THEMOVIEDB}&language=pt-BR`)
   if(!response.ok) {
     return {message: "Error ao buscar os dados"}
@@ -31,4 +31,4 @@ const loadDetails = async (detail: any) => {
 }
 
 
-export { loadApiGenrs, loadApiSeries, loadDetails }
+export { loadApiGenrs, loadApiSeries, loadDetailsSeries }

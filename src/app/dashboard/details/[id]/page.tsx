@@ -1,8 +1,8 @@
-import { loadDetails } from "@/app/api/service"
+import { loadDetailsSeries } from "@/app/api/service"
 
 const Details = async ({ params }: any) => {
     
-    const details = await loadDetails(params.id)
+    const details = await loadDetailsSeries(params.id)
 
     return ( 
         <div className="flex flex-col gap-3">

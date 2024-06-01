@@ -37,30 +37,30 @@ export default async function Series() {
         </SectionListMovies>
         <SectionListMovies nameCategorie="Comedia">
         {comedyGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="news">
         {newsGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Crimes">
         {crimeGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Guerra e Politica">
         {warGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Ficção ciêntifica e Fantasia">
@@ -72,58 +72,58 @@ export default async function Series() {
         </SectionListMovies>
         <SectionListMovies nameCategorie="Animações">
         {animationGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Reality">
         {realityGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Drama">
         {dramaGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Familia">
         {familyGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Documentarios">
         {documentaryGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Kids">
         {kidsGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Misterio">
         {mysteryGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         <SectionListMovies nameCategorie="Ocidental">
         {westernGenrs.results.map((movies: any) => (
-              <div key={movies.id}>
+              <Link href={`/dashboard/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
-              </div>
+              </Link>
             ))}
         </SectionListMovies>
         
