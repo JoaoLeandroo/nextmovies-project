@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
 import Container from "@/components/global/Container";
 import BannerMovies from "@/components/global/BannerMovies";
 import { loadApiSeries } from "@/app/api/service";
 import CardMovie from "../_components/CardMovie";
 import SectionListMovies from "../_components/SectionListMovies";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "NextMovies - Series",
+};
 
 export default async function Series() {
 

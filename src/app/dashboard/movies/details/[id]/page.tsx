@@ -3,6 +3,11 @@ import { loadDetailsMovies, baseUrlImage } from "@/app/api/service";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "NextMovies - Detalhes dos filmes",
+};
 
 const Details = async ({ params }: any) => {
   const details = await loadDetailsMovies(params.id);

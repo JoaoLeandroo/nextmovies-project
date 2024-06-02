@@ -1,5 +1,4 @@
 "use client"
-
 import Container from "@/components/global/Container";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -8,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { register } from "@/lib/action";
 import { useFormState } from "react-dom";
+
 
 const RegisterPage = () => {
   const [state, formState] = useFormState(register, null);

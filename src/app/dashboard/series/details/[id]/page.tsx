@@ -1,12 +1,15 @@
+import type { Metadata } from "next";
 import { loadDetailsSeries, baseUrlImage } from "@/app/api/service"
 import Container from "@/components/global/Container";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-const Details = async ({ params }: any) => {
+export const metadata: Metadata = {
+  title: "NextMovies - Detalhes series",
+};
 
-    // name overview backdrop_path
+const Details = async ({ params }: any) => {
     
     const details = await loadDetailsSeries(params.id)
 
