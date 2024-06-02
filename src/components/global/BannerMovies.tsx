@@ -1,26 +1,52 @@
-import { Jersey_10 } from "next/font/google";
 import Image from "next/image";
+import { loadNowPlaying, baseUrlImage } from "@/app/api/service";
+import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-const font_tittle = Jersey_10({ subsets: ["latin"], weight: ["400"] });
+const BannerMovies = async () => {
+  const dados = await loadNowPlaying();
 
-interface BannerMoviesProps {
-    children: React.ReactNode;
-    titulo: string
-}
+  return (
+    <Carousel className="relative w-full overflow-x-hidden">
+      <CarouselContent className="w-full">
+        {dados.results.map((result: any) => (
+                    <CarouselItem key={result.id}>
+                    <div className="max-w-[1020px] w-full max-h-[400px] h-auto mx-auto rounded-lg mt-2 shadow-xl relative bg-zinc-700/60 overflow-hidden">
+                      <Link href={`/dashboard/movies/details/${result.id}`}>
+                        <div className="absolute z-10 w-[80%] lg:w-[70%] text-white left-3 top-10 md:top-20 md:left-10 p-3 rounded-lg bg-neutral-700/20 select-none">
+                          <h2 className={`font-bold lg:text-4xl text-2xl`}>
+                            {result.title}
+                          </h2>
+                          <p className="font-medium text-xs hidden md:block">
+                            {result.overview}
+                          </p>
+                        </div>
+                        <Image
+                          src={`${baseUrlImage}${result.backdrop_path}`}
+                          width={720}
+                          height={0}
+                          alt={result.title}
+                          priority={true}
+                          quality={100}
+                          className="w-full h-auto relative top-0 object-cover lg:-top-20 select-none opacity-60"
+                        />
+                      </Link>
+                    </div>
+                  </CarouselItem>
+        ))}
+      </CarouselContent>
+      <div className="w-full h-11 relative">
+        <CarouselPrevious className="absolute bottom-0 left-10"/>
+        <CarouselNext className="absolute bottom-0 right-10"/>
+      </div>
+    </Carousel>
+  );
+};
 
-const BannerMovies = () => {
-    return ( 
-        <div className="max-w-[1000px] w-full max-h-[400px] h-auto mx-auto rounded-lg mt-2 shadow-xl relative bg-purple-700 overflow-hidden">
-            <h2 className={`${font_tittle.className} absolute text-white font-bold text-7xl z-10 top-20 left-20 select-none`}>Kong fu panda</h2>
-            <Image
-                src={"https://image.tmdb.org/t/p/original/kYgQzzjNis5jJalYtIHgrom0gOx.jpg"}
-                width={720}
-                height={0}
-                alt="Kong Fu Panda"
-                className="w-full h-auto relative top-0 lg:-top-20 select-none"
-            />
-        </div>
-     );
-}
- 
 export default BannerMovies;

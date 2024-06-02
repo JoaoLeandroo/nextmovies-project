@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Cookie from "js-cookie";
+import { LogOut } from "lucide-react";
 
 const ButtonLogout = () => {
   const router = useRouter();
@@ -13,9 +14,8 @@ const ButtonLogout = () => {
   return (
     <button
       onClick={handleLogout}
-      className="px-5 py-2 rounded shadow-xl font-medium text-white bg-red-400 hover:bg-red-400/70 transition duration-200"
     >
-      Logout
+      <LogOut className="opacity-75 hover:opacity-100 hover:text-purple-700 transition duration-200"/>
     </button>
   );
 };

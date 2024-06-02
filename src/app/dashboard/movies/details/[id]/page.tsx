@@ -18,7 +18,7 @@ const Details = async ({ params }: any) => {
               width={720}
               height={0}
               alt={details.title}
-              className="h-auto object-cover rounded-lg w-full"
+              className="h-auto object-cover rounded-lg w-full select-none"
             />
             <p className="text-white font-medium text-md text-center">
                 {details.overview}
