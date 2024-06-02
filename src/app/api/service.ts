@@ -1,4 +1,6 @@
 
+const baseUrlImage = "https://image.tmdb.org/t/p/original/"
+
 // Search Movies categories
 const loadApiGenrs = async (gen: string) => {
     const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.KEY_THEMOVIEDB}&with_genres=${gen}&language=pt-BR&page=1`)
@@ -8,7 +10,6 @@ const loadApiGenrs = async (gen: string) => {
 
     return response.json()
 }
-
 
 // Search Series categories
 const loadApiSeries = async(gen:string) => {
@@ -40,4 +41,4 @@ const loadDetailsMovies = async (detail: any) => {
 }
 
 
-export { loadApiGenrs, loadApiSeries, loadDetailsSeries, loadDetailsMovies }
+export { loadApiGenrs, loadApiSeries, loadDetailsSeries, loadDetailsMovies, baseUrlImage }

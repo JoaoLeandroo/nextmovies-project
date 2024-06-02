@@ -22,10 +22,16 @@ const HeaderBar = () => {
                                 <Link className="text-white font-medium text-lg" href={"/dashboard/series"}>Series</Link>
                             </div>
                             :
+                            location === "/dashboard/series" ?
                             <div className="flex gap-2">
                                 <Link className="text-white font-medium text-lg" href={"/"}>Movies</Link>
                                 <Link className="text-white font-medium text-lg underline underline-offset-4" href={"/dashboard/series"}>Series</Link>
                             </div>
+                            :
+                            <div className="flex gap-2">
+                            <Link className="text-white font-medium text-lg" href={"/"}>Movies</Link>
+                            <Link className="text-white font-medium text-lg" href={"/dashboard/series"}>Series</Link>
+                        </div>
                         }
                     <div>
                         <ButtonLogout/>

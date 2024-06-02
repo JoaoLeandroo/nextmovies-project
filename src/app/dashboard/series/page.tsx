@@ -65,7 +65,7 @@ export default async function Series() {
         </SectionListMovies>
         <SectionListMovies nameCategorie="Ficção ciêntifica e Fantasia">
         {fictionGenrs.results.map((movies: any) => (
-              <Link href={"/dashboard/details"} key={movies.id}>
+              <Link href={`/dashboard/series/details/${movies.id}`} key={movies.id}>
                 <CardMovie imageUrl={movies.poster_path} alt={movies.name}/>
               </Link>
             ))}
