@@ -75,5 +75,5 @@ export const loginUser = async (email: string, password: string) => {
     }
 
     cookies().set('movie_token', 'lkasjd2193j1o23uu372nsdh3')
-    redirect("/dashboard")
+    redirect("/dashboard/movies")
 }

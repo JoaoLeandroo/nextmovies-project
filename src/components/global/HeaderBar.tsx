@@ -16,7 +16,7 @@ const HeaderBar = () => {
                         <h2 className="font-bold">Next<span className="text-purple-700">MOVIES</span></h2>
                     </div>
                         {
-                            location === "/dashboard" ?
+                            location === "/dashboard/movies" ?
                             <div className="flex gap-2">
                                 <Link className="text-white font-medium text-lg underline underline-offset-4" href={"/"}>Movies</Link>
                                 <Link className="text-white font-medium text-lg" href={"/dashboard/series"}>Series</Link>

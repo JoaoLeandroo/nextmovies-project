@@ -30,5 +30,14 @@ const loadDetailsSeries = async (detail: any) => {
   return response.json()
 }
 
+const loadDetailsMovies = async (detail: any) => {
+  const response = await fetch(`https://api.themoviedb.org/3/movie/${detail}?api_key=${process.env.KEY_THEMOVIEDB}&language=pt-BR`)
+  if(!response.ok) {
+    return {message: "Error ao buscar os dados"}
+  }
 
-export { loadApiGenrs, loadApiSeries, loadDetailsSeries }
+  return response.json()
+}
+
+
+export { loadApiGenrs, loadApiSeries, loadDetailsSeries, loadDetailsMovies }

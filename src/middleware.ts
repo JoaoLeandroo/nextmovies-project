@@ -4,7 +4,7 @@ export default function middleware(request: NextRequest) {
     const token = request.cookies.get("movie_token")?.value
 
     const signInUrl = new URL("/", request.url)
-    const dashboardUrl = new URL("/dashboard", request.url)
+    const dashboardUrl = new URL("/dashboard/movies", request.url)
 
     if(!token) {
 
