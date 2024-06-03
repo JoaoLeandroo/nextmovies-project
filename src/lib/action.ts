@@ -55,7 +55,6 @@ export const register = async (prevSate: any, formData: FormData) => {
     redirect("/")
 }
 
-
 export const loginUser = async (email: string, password: string) => {
 
     const user = await prisma.registerUser.findUnique({
@@ -65,13 +64,21 @@ export const loginUser = async (email: string, password: string) => {
     })
 
     if(!user) {
-        return null
+        return {
+            Error: {
+                email: ["Email ou senha incorretos."]
+            }
+        }
     }
 
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
-        return null; 
+        return {
+            Error: {
+                password: ["Email ou senha incorretos."]
+            }
+        } 
     }
 
     cookies().set('movie_token', 'lkasjd2193j1o23uu372nsdh3')

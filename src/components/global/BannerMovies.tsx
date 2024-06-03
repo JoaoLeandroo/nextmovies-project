@@ -34,7 +34,7 @@ const BannerMovies = async () => {
                           alt={result.title}
                           priority={true}
                           quality={100}
-                          className="w-full h-auto relative top-0 object-cover lg:-top-20 select-none opacity-60"
+                          className="w-full h-auto object-cover select-none opacity-60 bg-cover bg-center"
                         />
                       </Link>
                     </div>

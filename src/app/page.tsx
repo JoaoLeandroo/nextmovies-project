@@ -11,6 +11,8 @@ import { FormEvent, useState, useRef } from 'react';
 import { loginUser } from "@/lib/action";
 
 
+
+
 export default function Home() {
 
   const [email, setEmail] = useState("");
@@ -57,7 +59,9 @@ export default function Home() {
                 <Label>Senha</Label>
                 <Input className="bg-zinc-700/40 h-12" placeholder="Digite sua senha" type="password" ref={passwordRef}/>
               </div>
-              <Button className="mt-3 font-medium text-xl" type="submit" onClick={handleClick}>Entrar</Button>
+              <Button className="mt-3 font-medium text-xl" type="submit" onClick={handleClick}>
+                Entrar
+              </Button>
               <div className="mt-1 text-center">
                 <Link href={"/"} className="text-zinc-200 hover:text-zinc-400 transition duration-200">Esqueceu sua senha?</Link>
                 <p className="mt-3">
