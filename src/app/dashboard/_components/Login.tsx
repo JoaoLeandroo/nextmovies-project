@@ -1,12 +1,10 @@
 "use client"
 
 import Container from "@/components/global/Container";
-import Image from "next/image";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import LoginPage from "./dashboard/_components/Login";
 
 import { FormEvent, useState, useRef } from 'react';
 import { loginUser } from "@/lib/action";
@@ -14,37 +12,30 @@ import { loginUser } from "@/lib/action";
 
 
 
-export default function Home() {
+export default function LoginPage() {
 
-  // const [email, setEmail] = useState("");
-  // const emailRef = useRef<HTMLInputElement>(null)
-  // const passwordRef = useRef<HTMLInputElement>(null)
+  const [email, setEmail] = useState("");
+  const emailRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
 
-  // const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const login: any = loginUser(email, password)
+  const login: any = loginUser(email, password)
 
-  // const handleClick = (e: FormEvent) => {
+  const handleClick = (e: FormEvent) => {
     
-  //   const email_ref = emailRef.current?.value
-  //   const password_ref = passwordRef.current?.value
-  //   e.preventDefault();
-  //   setEmail(email_ref as string)
-  //   setPassword(password_ref as string)
+    const email_ref = emailRef.current?.value
+    const password_ref = passwordRef.current?.value
+    e.preventDefault();
+    setEmail(email_ref as string)
+    setPassword(password_ref as string)
     
-  //   return
-  // }
+    return
+  }
 
   return (
-    <div className="relative w-full">
-      <Image
-        src={"/Banner-01.jpg"}
-        width={2430}
-        height={1080}
-        alt="Banner Página login"
-        className="w-full absolute top-0 left-0 -z-10 select-none opacity-75 hidden md:block"
-      />
-      {/* <Container>
+
+      <Container>
         <div className="w-full h-[90vh] flex items-center justify-center">
           <form action={login} className="max-w-[400px] w-full bg-slate-950/90 shadow-xl rounded-lg py-6 px-3 border border-white">
             <h2 className="text-2xl font-bold text-white text-center">
@@ -72,8 +63,7 @@ export default function Home() {
             </div>
           </form>
         </div>
-      </Container> */}
-      <LoginPage/>
-    </div>
+      </Container>
+
   );
 }
