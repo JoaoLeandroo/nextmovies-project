@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 export default async function DetailMovies() {
 
+
   const actionGenrs = await loadApiGenrs("28");
   const comedyGenrs = await loadApiGenrs("35");
   const romanceGenrs = await loadApiGenrs("10749");
@@ -33,14 +34,13 @@ export default async function DetailMovies() {
     <div>
       <Container>
         <BannerMovies/>
-
-        <SectionListMovies nameCategorie="Ação">
-        {actionGenrs.results.map((movies: any) => (
-              <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
-                <CardMovie imageUrl={movies.poster_path} alt={movies.title}/>
-              </Link>
-            ))}
-        </SectionListMovies>
+          <SectionListMovies nameCategorie="Ação">
+          {actionGenrs.results.map((movies: any) => (
+                <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
+                  <CardMovie imageUrl={movies.poster_path} alt={movies.title}/>
+                </Link>
+              ))}
+          </SectionListMovies>
         <SectionListMovies nameCategorie="Comedia">
         {comedyGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>

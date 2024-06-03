@@ -18,19 +18,19 @@ const Details = async ({ params }: any) => {
         <div className="mb-11">
           {details ? (
             <div className="w-full max-w-[720px] mx-auto flex flex-col justify-center items-center mt-8 gap-3">
-              <h2 className="text-3xl font-semibold text-white text-center">{details.name}</h2>
+              <h2 className="text-3xl font-semibold text-white text-center">{details?.name}</h2>
               <Image
-                src={`${baseUrlImage}${details.backdrop_path}`}
+                src={`${baseUrlImage}${details?.backdrop_path}`}
                 width={720}
                 height={0}
-                alt={details.name}
+                alt={details?.name}
                 className="h-auto object-cover rounded-lg w-full select-none"
               />
               <p className="text-white font-medium text-md text-center">
-                  {details.overview}
+                  {details?.overview}
               </p>
               <Button className="w-full font-medium text-xl">
-                  <Link className="w-full h-full" href={`https://youtube.com/results?search_query=${details.name} trailer`} target="blank">
+                  <Link className="w-full h-full" href={`https://youtube.com/results?search_query=${details?.name} trailer`} target="blank">
                   View Trailler                           
                   </Link>
               </Button>
