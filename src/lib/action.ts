@@ -11,44 +11,89 @@ const UserSchema = z.object({
     password: z.string().min(6, {message: "A senha deve ter no minimo 6 caracters."}),
 })
 
-// Register user
+// // Register user
+// export const RegisterUser = async (prevSate: any, formData: FormData) => {
+//     const validateFields = UserSchema.safeParse(
+//         Object.fromEntries(formData.entries())
+//     )
+
+//     if(!validateFields.success) {
+//         return {
+//             Error: validateFields.error.flatten().fieldErrors,
+//         }
+//     }
+
+//     const { name, email, password } = validateFields.data
+
+//     const existingUser = await prisma.registerUser.findUnique({
+//         where:  {email}
+//     })
+
+//     if(existingUser) {
+//         return {
+//             Error: {
+//                 email: ["Email já em uso."]
+//             }
+//         }
+//     }
+
+//     const hashPassword = await bcrypt.hash(password, 10)
+
+//     await prisma.registerUser.create({
+//         data: {
+//             name: name,
+//             email: email,
+//             password: hashPassword,
+//         }
+//     })
+
+//     redirect("/")
+// }
+
 export const RegisterUser = async (prevSate: any, formData: FormData) => {
-    const validateFields = UserSchema.safeParse(
+    try {
+      const validateFields = UserSchema.safeParse(
         Object.fromEntries(formData.entries())
-    )
-
-    if(!validateFields.success) {
+      );
+  
+      if (!validateFields.success) {
         return {
-            Error: validateFields.error.flatten().fieldErrors,
-        }
-    }
+          Error: validateFields.error.flatten().fieldErrors,
+        };
+      }
+  
+      const { name, email, password } = validateFields.data;
 
-    const { name, email, password } = validateFields.data
-
-    const existingUser = await prisma.registerUser.findUnique({
-        where:  {email}
-    })
-
-    if(existingUser) {
+      const existingUser = await prisma.registerUser.findUnique({
+        where: { email },
+      });
+  
+      if (existingUser) {
         return {
-            Error: {
-                email: ["Email já em uso."]
-            }
-        }
-    }
+          Error: {
+            email: ['Email já em uso.'],
+          },
+        };
+      }
 
-    const hashPassword = await bcrypt.hash(password, 10)
+      const hashPassword = await bcrypt.hash(password, 10);
 
-    await prisma.registerUser.create({
+      await prisma.registerUser.create({
         data: {
-            name: name,
-            email: email,
-            password: hashPassword,
-        }
-    })
+          name,
+          email,
+          password: hashPassword,
+        },
+      });
+  
+    } catch (error) {
+      console.error('Error registering user:', error);
+      return { Error: 'An error occurred during registration.' };
+    }
 
     redirect("/")
-}
+  };
+  
 
 const LoginSchema = z.object({
     email: z.string().email({message: "Insira um email valido."}).transform(email => email.toLowerCase()),
