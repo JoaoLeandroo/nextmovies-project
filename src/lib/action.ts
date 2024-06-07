@@ -11,57 +11,25 @@ const UserSchema = z.object({
     password: z.string().min(6, {message: "A senha deve ter no minimo 6 caracters."}),
 })
 
-// // Register user
-// export const RegisterUser = async (prevSate: any, formData: FormData) => {
-//     const validateFields = UserSchema.safeParse(
-//         Object.fromEntries(formData.entries())
-//     )
+type RegisterUserError = {
+    name?: string[];
+    email?: string[];
+    password?: string[];
+    general?: string;
+};
 
-//     if(!validateFields.success) {
-//         return {
-//             Error: validateFields.error.flatten().fieldErrors,
-//         }
-//     }
 
-//     const { name, email, password } = validateFields.data
-
-//     const existingUser = await prisma.registerUser.findUnique({
-//         where:  {email}
-//     })
-
-//     if(existingUser) {
-//         return {
-//             Error: {
-//                 email: ["Email já em uso."]
-//             }
-//         }
-//     }
-
-//     const hashPassword = await bcrypt.hash(password, 10)
-
-//     await prisma.registerUser.create({
-//         data: {
-//             name: name,
-//             email: email,
-//             password: hashPassword,
-//         }
-//     })
-
-//     redirect("/")
-// }
-
-export const RegisterUser = async (prevSate: any, formData: FormData) => {
+export const RegisterUser = async (prevSate: any, formData: FormData): Promise<{ Error?: RegisterUserError }> => {
     try {
-      const validateFields = UserSchema.safeParse(
-        Object.fromEntries(formData.entries())
-      );
-  
-      if (!validateFields.success) {
-        return {
-          Error: validateFields.error.flatten().fieldErrors,
-        };
-      }
-  
+        const validateFields = UserSchema.safeParse(
+          Object.fromEntries(formData.entries())
+        );
+    
+        if (!validateFields.success) {
+          return {
+            Error: validateFields.error.flatten().fieldErrors,
+          };
+        }
       const { name, email, password } = validateFields.data;
 
       const existingUser = await prisma.registerUser.findUnique({
@@ -88,7 +56,7 @@ export const RegisterUser = async (prevSate: any, formData: FormData) => {
   
     } catch (error) {
       console.error('Error registering user:', error);
-      return { Error: 'An error occurred during registration.' };
+      return {};
     }
 
     redirect("/")

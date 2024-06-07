@@ -29,7 +29,7 @@ const FormPageRegister = () => {
                 placeholder="Digite o seu nome"
               />
             <div id="name-error" aria-live="polite" aria-atomic="true">
-                <p className="mt-2 text-sm text-red-500">{state?.Error?.name}</p>
+                <p className="mt-2 text-sm text-red-500">{state?.Error && state?.Error?.name ? state?.Error?.name?.[0] : null}</p>
             </div>
             </div>
 
