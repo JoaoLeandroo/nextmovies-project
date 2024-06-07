@@ -16,4 +16,5 @@ model RegisterUser {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 
+  @@map("registro_usuario")
 }
