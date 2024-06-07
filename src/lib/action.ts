@@ -68,45 +68,58 @@ const LoginSchema = z.object({
     password: z.string().min(6, {message: "A senha deve ter no minimo 6 caracters."}),
 })
 
+type LoginUserError = {
+    email?: string[];
+    password?: string[];
+};
 
-export const LoginUser = async (prevSate: any, formData: FormData) => {
 
-    const validatedFields = LoginSchema.safeParse(
-        Object.fromEntries(formData.entries())
-    );
+export const LoginUser = async (prevSate: any, formData: FormData): Promise<{ Error?: LoginUserError }> => {
+
+    try {
+        const validatedFields = LoginSchema.safeParse(
+            Object.fromEntries(formData.entries())
+        );
+        
+          if(!validatedFields.success) {
+            return {
+                Error: validatedFields.error.flatten().fieldErrors,
+            }
+        }
     
-      if(!validatedFields.success) {
-        return {
-            Error: validatedFields.error.flatten().fieldErrors,
-        }
-    }
-
-    const { email, password } = validatedFields.data
-
-    const user = await prisma.registerUser.findUnique({
-        where: { email }
-    })
-
-    if(!user) {
-        return {
-            Error: {
-                email: ["Email ou senha incorretos."],
-                password: ["Email ou senha incorretos"]
+        const { email, password } = validatedFields.data
+    
+        const user = await prisma.registerUser.findUnique({
+            where: { email }
+        })
+    
+        if(!user) {
+            return {
+                Error: {
+                    email: ["Email ou senha incorretos."],
+                    password: ["Email ou senha incorretos"]
+                }
             }
         }
+    
+        const isValidPassword = await bcrypt.compare(password, user.password);
+    
+        if (!isValidPassword) {
+            return {
+                Error: {
+                    password: ["Email ou senha incorretos."],
+                    email: ["Email ou senha incorretos."]
+                }
+            } 
+        }
+
+    }catch(error) {
+        console.error('Error ao fazer login:', error);
+        return {};
     }
 
-    const isValidPassword = await bcrypt.compare(password, user.password);
-
-    if (!isValidPassword) {
-        return {
-            Error: {
-                password: ["Email ou senha incorretos."],
-                email: ["Email ou senha incorretos."]
-            }
-        } 
-    }
 
     cookies().set('movie_token', 'testingCookieApplication')
     redirect("/dashboard/movies")
 }
+
