@@ -8,8 +8,11 @@ const ButtonLogout = () => {
 
   const handleLogout = async () => {
     Cookie.remove("movie_token");
-    await new Promise((resolver) => setTimeout(resolver, 1000))
-    router.replace("/")
+    console.log("inite...")
+    await new Promise((resolver) => setTimeout(resolver, 1500))
+    console.log("end")
+    // router.replace("/")
+    window.location.href = "/"
   };
 
   return (
