@@ -2,20 +2,15 @@
 import { useRouter } from "next/navigation";
 import Cookie from "js-cookie";
 import { LogOut } from "lucide-react";
-import { useEffect, useState } from "react";
-
 
 const ButtonLogout = () => {
   const router = useRouter();
-  const [att, setAtt] = useState(1)
 
-  useEffect(() => {
-    console.log("Atualizado")
-  }, [att])
-
-  const handleLogout = () => {
-    setAtt(1)
+  const handleLogout = async () => {
     Cookie.remove("movie_token");
+    console.log("initial")
+    await new Promise((resolver) => setTimeout(resolver, 2000))
+    console.log("end...")
     router.push("/");
   };
 

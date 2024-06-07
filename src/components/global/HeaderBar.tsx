@@ -3,7 +3,6 @@ import Container from "./Container";
 import ButtonLogout from "./ButtonLogout";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 
 const HeaderBar = () => {
 
