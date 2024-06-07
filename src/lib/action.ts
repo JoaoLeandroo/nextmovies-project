@@ -114,7 +114,6 @@ export const LoginUser = async (prevSate: any, formData: FormData): Promise<{ Er
         }
 
     }catch(error) {
-        console.error(`database url: ${process.env.DATABASE_UR}`)
         console.error('Error ao fazer login:', error);
         return {};
     }
