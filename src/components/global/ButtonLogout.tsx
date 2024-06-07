@@ -1,17 +1,14 @@
 "use client";
-import { useRouter } from "next/navigation";
 import Cookie from "js-cookie";
 import { LogOut } from "lucide-react";
 
 const ButtonLogout = () => {
-  const router = useRouter();
 
   const handleLogout = async () => {
     Cookie.remove("movie_token");
     console.log("inite...")
-    await new Promise((resolver) => setTimeout(resolver, 1500))
+    await new Promise((resolver) => setTimeout(resolver, 1000))
     console.log("end")
-    // router.replace("/")
     window.location.href = "/"
   };
 
