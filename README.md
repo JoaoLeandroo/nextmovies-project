@@ -1,8 +1,12 @@
 **Projeto NextMovies**
 
+![Captura de tela 2024-06-09 201016](https://github.com/JoaoLeandroo/nextmovies-project/assets/112579083/3dc443f9-c1fd-4c4c-aa1d-41c486cd0422)
+
 
 **About**
-    The NetMovies project is a project designed to view all available films and series through documentation from The Movie Database.
+
+    The NetMovies project is a project designed to view all available films and 
+    series through documentation from The Movie Database.
 
 **How to run locally**
 
