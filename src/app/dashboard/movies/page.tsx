@@ -34,13 +34,14 @@ export default async function DetailMovies() {
     <div>
       <Container>
         <BannerMovies/>
-          <SectionListMovies nameCategorie="Ação">
+        <SectionListMovies nameCategorie="Ação">
           {actionGenrs.results.map((movies: any) => (
-                <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
-                  <CardMovie imageUrl={movies.poster_path} alt={movies.title}/>
-                </Link>
-              ))}
-          </SectionListMovies>
+            <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
+              <CardMovie imageUrl={movies.poster_path} alt={movies.title}/>
+            </Link>
+          ))}
+        </SectionListMovies>
+
         <SectionListMovies nameCategorie="Comedia">
         {comedyGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -48,6 +49,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Romance">
         {romanceGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -55,6 +57,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Crimes">
         {crimeGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -62,6 +65,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Guerra">
         {warGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -69,6 +73,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Ficção ciêntifica">
         {fictionGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -76,6 +81,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Animações">
         {animationGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -83,6 +89,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Aventura">
         {adventureGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -90,6 +97,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Drama">
         {dramaGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -97,6 +105,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Familia">
         {familyGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -104,6 +113,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Fantasia">
         {fantasyGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -111,6 +121,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Documentarios">
         {documentaryGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -118,6 +129,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Terror">
         {horrorGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -125,6 +137,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Musicais">
         {musicGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -132,6 +145,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Misterio">
         {mysteryGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -139,6 +153,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
         <SectionListMovies nameCategorie="Ocidental">
         {westernGenrs.results.map((movies: any) => (
               <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id}>
@@ -146,6 +161,7 @@ export default async function DetailMovies() {
               </Link>
             ))}
         </SectionListMovies>
+
       </Container>
     </div>
   );
