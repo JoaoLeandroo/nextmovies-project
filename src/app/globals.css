@@ -69,6 +69,20 @@
       transform: rotate(360deg);
   }
   } 
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Cor do fundo da barra de rolagem */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #7e22ce; /* Cor do polegar da barra de rolagem */
+    border-radius: 12px;
+  }
       
 
 @layer base {
