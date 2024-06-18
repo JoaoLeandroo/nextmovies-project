@@ -12,6 +12,7 @@ const SearchPage = async ({ params }: any) => {
           {details.results.map((movies: any) => (
             <Link href={`/dashboard/movies/details/${movies.id}`} key={movies.id} className="border border-white rounded-lg">
               <CardMovie imageUrl={movies.poster_path} alt={movies.title}/>
+              
             </Link>
           ))}
         </div>
