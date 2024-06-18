@@ -49,5 +49,15 @@ const loadNowPlaying = async () => {
   return response.json()
 }
 
+const loadSearch = async (name: string) => {
+  const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_KEY_MOVIEDB}&query=${name}&language=pt-BR&page=1`)
+  if(!response.ok) {
+    return {message: "Falha ao buscar dados"}
+  }
 
-export { loadApiGenrs, loadApiSeries, loadDetailsSeries, loadDetailsMovies, baseUrlImage, loadNowPlaying }
+  return response.json()
+}
+
+
+
+export { loadApiGenrs, loadApiSeries, loadDetailsSeries, loadDetailsMovies, baseUrlImage, loadNowPlaying, loadSearch }

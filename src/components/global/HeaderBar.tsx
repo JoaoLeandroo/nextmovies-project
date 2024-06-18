@@ -3,6 +3,7 @@ import Container from "./Container";
 import ButtonLogout from "./ButtonLogout";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SearchButton from "./SearchButton";
 
 const HeaderBar = () => {
 
@@ -33,7 +34,10 @@ const HeaderBar = () => {
                             <Link className="text-white font-medium text-lg" href={"/dashboard/series"}>Series</Link>
                         </div>
                         }
-                    <div>
+                    <div className="flex">
+                        <div className="mr-5">
+                            <SearchButton/>
+                        </div>
                         <ButtonLogout/>
                     </div>
                 </div>
