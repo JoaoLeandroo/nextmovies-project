@@ -1,6 +1,13 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Container from "@/components/global/Container";
 import FormPageRegister from "../_components/FormPageRegister";
+
+export const metadata: Metadata = {
+  title: "NextMovies - Área de Registro",
+  description: "Cadastre-se aqui",
+};
+
 
 const PageRegister = () => {
     return ( 
